@@ -21,18 +21,19 @@ function searchedData(err, data, response) {
 
 exports.searchTwitter = function(req, res) {
 
-    //console.log(req.toJson());
-    //console.log(util.inspect(req.body, false, null))
+    //console.log(util.inspect(req.body.data, false, null))
 
     var params = {
         q: req.body.data, // sample search term
         count: 100
     } 
 
+   // console.log(params)
     T.get('search/tweets', params, function(err, data, response) {
     if (err)
-      res.send(err);
-      res.json(data);
-   // console.log(response);
+       res.send(err);
+      else{
+       res.json(data);
+      }
   });
 };

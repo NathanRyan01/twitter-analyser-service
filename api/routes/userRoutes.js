@@ -12,7 +12,6 @@ module.exports = function(app) {
   app.route('/twitter/return').get(passport.authenticate('twitter', {
       failureRedirect: '/'
     }), function(req, res) {
-      console.log(' ---------- here.... -----')
       res.redirect('/')
     })
 };

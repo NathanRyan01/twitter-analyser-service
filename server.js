@@ -1,11 +1,15 @@
 var express = require("express");
 var app = express();
+var cors = require('cors');
 var cfenv = require("cfenv");
 var bodyParser = require('body-parser')
 var Passport = require('passport')
 var Strategy = require('passport-twitter').Strategy
 var keys = require('./api/config')
 var session = require('express-session');
+
+
+app.use(cors);
 
 Passport.use(new Strategy({
   consumerKey: keys.consumer_key,
@@ -22,6 +26,7 @@ Passport.serializeUser(function(user, done) {
 Passport.deserializeUser(function(user, done) {
   done(null, user);
 });
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 
