@@ -17,6 +17,7 @@
   "dependencies": {
     "body-parser": "^1.17.x",
     "cfenv": "^1.0.x",
+    "classnames": "^2.2.5",
     "cloudant": "^1.7.x",
     "cors": "^2.8.4",
     "dotenv": "^4.0.0",
@@ -24,6 +25,11 @@
     "express-session": "^1.15.6",
     "passport": "^0.4.0",
     "passport-twitter": "^1.0.4",
+    "react": "^16.2.0",
+    "react-table": "^6.8.0",
+    "react-tabs": "^2.2.1",
+    "request": "^2.85.0",
+    "sentiment": "^4.2.0",
     "twit": "^2.2.9"
   },
   "author": "IBM Corp",

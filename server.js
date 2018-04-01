@@ -9,12 +9,13 @@ var keys = require('./api/config')
 var session = require('express-session');
 
 
-app.use(cors);
+app.use(cors());
+
 
 Passport.use(new Strategy({
   consumerKey: keys.consumer_key,
   consumerSecret: keys.consumer_secret,
-  callbackURL: 'http://localhost:3000/twitter/return'
+  callbackURL: 'http://localhost:3001/twitter/return'
 }, (token, tokenSecret, profile, cb) => {
   return cb(null, profile)
 }))
@@ -52,6 +53,8 @@ routes(app);
 var userRoutes = require('./api/routes/userRoutes');
 userRoutes(app)
 
+var postRoutes = require('./api/routes/postRoutes');
+postRoutes(app)
 
 
 app.post("/api/visitors", function (request, response) {
@@ -140,7 +143,10 @@ if (appEnv.services['cloudantNoSQLDB'] || appEnv.getService(/cloudant/)) {
 //serve static file (index.html, images, css)
 app.use(express.static(__dirname + '/views'));
 
-var port = process.env.PORT || 3000
-app.listen(port, function() {
-    console.log("To view your app, open this link in your browser: http://localhost:" + port);
+var port = process.env.PORT || 3001
+
+app.listen(port,function(err) {
+  if (err) return console.log(err);
+  console.log("Listening at http://localhost:%s", port);
 });
+
