@@ -6,6 +6,7 @@ var T = new Twit(config); //this is the object of twit which
 //will help us to call functions inside it
 
 const util = require('util')
+var message = 'success';
 
 function postData(err, data, response) {
     console.log(data);

@@ -6,14 +6,17 @@ var config = require('./config') //this is we import the config
 var T = new Twit(config); //this is the object of twit which 
 //will help us to call functions inside it
 
-var params;
+var params = {
+    screen_name : req.body.data,
+    count: 10
+}
 
 
-T.post('statuses/update', params,postData); // get is the 
+T.get('statuses/user_timeline', params,userSearch); // get is the 
 //function to search the tweet which three paramaters 'search/tweets'
 //,params and a callback function.
 
 
-function postData(err, data, response) {
+function userSearch(err, data, response) {
     console.log(data);
 } // searchedData function is a callback function which 
