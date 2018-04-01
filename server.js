@@ -47,6 +47,7 @@ var mydb;
 
 app.use(Passport.initialize())
 app.use(Passport.session())
+
 var routes = require('./api/routes/searchRoutes'); //importing route
 routes(app); 
 
@@ -55,6 +56,9 @@ userRoutes(app)
 
 var postRoutes = require('./api/routes/postRoutes');
 postRoutes(app)
+
+var userPostRoutes = require('./api/routes/userPostRoutes');
+userPostRoutes(app)
 
 
 app.post("/api/visitors", function (request, response) {

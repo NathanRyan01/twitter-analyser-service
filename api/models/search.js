@@ -19,7 +19,6 @@ T.get('search/tweets', params,searchedData); // get is the
 //function to search the tweet which three paramaters 'search/tweets'
 //,params and a callback function.
 
-
 function searchedData(err, data, response) {
     console.log(data);
 } // searchedData function is a callback function which 
